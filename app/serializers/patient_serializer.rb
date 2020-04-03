@@ -1,8 +1,8 @@
 class PatientSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :birthdate, :gender, :record
+  attributes :id, :first_name, :last_name, :birthdate, :gender, :records
 
-  def record
-    self.object.record.map do |record| {
+  def records
+    self.object.records.map do |record| {
       doctorFirstName: record.doctor_first_name,
       doctorLastName: record.doctor_last_name,
       practiceName: record.practice_name,
@@ -10,6 +10,6 @@ class PatientSerializer < ActiveModel::Serializer
       title: record.title,
       notes: record.notes
     }  
+    end
   end
-
 end
