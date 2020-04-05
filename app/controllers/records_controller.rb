@@ -1,14 +1,7 @@
 class RecordsController < ApplicationController
 
-	def index
-		render json: Patients.all
-	end	
-
-	def show
-		render json: Patient.find(id: params[:id])
+    def create
+        Record.create(tag_id: tag.id, event_id: params[:event_id])
 	end
-
-	def create
-		#removed reg controller
-	end
+	
 end
