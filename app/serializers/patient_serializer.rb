@@ -1,5 +1,5 @@
 class PatientSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :birthdate, :gender, :records
+  attributes :id, :first_name, :last_name, :birthdate, :gender, :email, :records
 
   def records
     self.object.records.map do |record| {
