@@ -1,21 +1,13 @@
 class PatientsController < ApplicationController
-	has_secure_password
-	validates :email, presence: true
-	validates :email, uniqueness: true
-	validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
 	def index
-		@patients = Patient.all
-		render json: {
-			patients: @patients
-		}
+		patients = Patient.all
+		render json: patients
 	end	
 
 	def show
-		@patient = Patient.find(id: params[:id])
-		render json: {
-			patient: @patient
-		}
+		patient = Patient.find(params[:id])
+		render json: patient
 	end
 
 	def create
