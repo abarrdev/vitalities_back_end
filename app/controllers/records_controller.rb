@@ -14,6 +14,11 @@ class RecordsController < ApplicationController
 		record = Record.create(record_params)
 		render json: record
 	end
+
+	def destroy
+		record = Record.delete(params[:id])
+		render json: record
+	end
 	
 	private
 
