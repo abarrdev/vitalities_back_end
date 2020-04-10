@@ -16,7 +16,9 @@ class RecordsController < ApplicationController
 	end
 
 	def destroy
-		record = Record.delete(params[:id])
+		record = Record.find(params[:id])
+		record.delete
+		puts record
 		render json: record
 	end
 	
