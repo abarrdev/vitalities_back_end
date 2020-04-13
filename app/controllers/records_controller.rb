@@ -15,6 +15,13 @@ class RecordsController < ApplicationController
 		render json: record
 	end
 
+	def update
+		# byebug
+		record = Record.find(params[:id])
+		record.update(record_params)
+		render json: record
+	end
+
 	def destroy
 		record = Record.find(params[:id])
 		record.delete
